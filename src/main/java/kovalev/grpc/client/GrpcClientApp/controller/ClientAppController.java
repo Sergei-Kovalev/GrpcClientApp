@@ -28,9 +28,10 @@ public class ClientAppController {
     public static final int REQUESTS_COUNT = 10;
     public static final int MAX_REQUESTED_ID = 15;
     public static final int TIME_BETWEEN_REQUESTS_SEC = 1;
+    public static final int SERVER_PORT = 8090;
 
     public void sendRequests() throws InterruptedException {
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8080)
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", SERVER_PORT)
                 .usePlaintext().build();
 
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
